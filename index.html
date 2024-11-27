@@ -7,40 +7,52 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-      <!-- Form for adding a new project -->
-      <form id="project-form">
-        <label for="project-name">Project Name:</label>
-        <input type="text" id="project-name" name="project-name" required>
-        <button type="submit">Add Project</button>
-      </form>
 
-      <!-- Select Project -->
-      <label for="project-select">Select Project:</label>
-      <select id="project-select"></select>
+<!--Title of the project-->
+<h1 class="main-title">My Todo List</h1>
 
-        <!-- Form for adding a new task -->
-        <form id="todo-form">
-            <h2>Add Todo</h2>
-            <label for="todo-title">Title:</label>
-            <input type="text" id="todo-title" name="todo-title" required>
-        
-            <label for="todo-description">Description:</label>
-            <input type="text" id="todo-description" name="todo-description">
-        
-            <label for="todo-due-date">Due Date:</label>
-            <input type="date" id="todo-due-date" name="todo-due-date" required>
-        
-            <label for="todo-priority">Priority:</label>
-            <select id="todo-priority" name="todo-priority">
-              <option value="low">Low</option>
-              <option value="medium">Medium</option>
-              <option value="high">High</option>
-            </select>
-        
-            <button type="submit">Add Todo</button>
-          </form>
 
-          <!-- Task List -->
-          <div id="todo-list"></div>
+<!-- Form for adding a new project -->
+<dialog id="newProjectDialog">
+<form id="project-form">
+    <label for="project-name">Project Name:</label>
+    <input type="text" id="project-name" name="project-name" required>
+    <button type="submit" id="add-project-btn">Add Project</button>
+</form>
+</dialog>
+
+
+<!-- Select Project -->
+<!-- <label for="project-select">Select Project:</label>
+<select id="project-select"></select> -->
+
+
+<!-- Form for adding a new task -->
+    <dialog id="newTodoDialog">
+<form id="todo-form">
+    <h2>Add Todo</h2>
+    <label for="todo-title">Title:</label>
+    <input type="text" id="todo-title" name="todo-title" required>
+
+    <label for="todo-description">Description:</label>
+    <input type="text" id="todo-description" name="todo-description">
+
+    <label for="todo-due-date">Due Date:</label>
+    <input type="date" id="todo-due-date" name="todo-due-date" required>
+
+    <label for="todo-priority">Priority:</label>
+    <select id="todo-priority" name="todo-priority">
+        <option value="low">Low</option>
+        <option value="medium">Medium</option>
+        <option value="high">High</option>
+    </select>
+    <button type="submit">Add Todo</button>
+</form>
+    </dialog>
+
+<!-- Task List -->
+<div id="todo-list"></div>
+
+<script src="./main.js" type="module" defer></script>
 </body>
 </html>
