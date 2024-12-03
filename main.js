@@ -194,7 +194,7 @@ function displayProjects(projects) {
         );
 
         if (targetProject && targetProject !== project) {
-          /* if it is finded project and make sure that it is not the same project in which this task is */
+          /* if it is found project and make sure that it is not the same project in which this task is */
           const todoIndex = parseInt(
             todoItem.dataset.index,
             10
