@@ -1,55 +1,56 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+<head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>📝My Todo List</title>
     <link rel="stylesheet" href="styles.css" />
-  </head>
-  <body>
-    <!--Title of the project-->
-    <h1 class="main-title">My Todo List</h1>
+</head>
+<body>
+<!--Title of the project-->
+<h1 class="main-title">My Todo List</h1>
 
-    <!-- Form for adding a new project -->
-    <dialog id="newProjectDialog">
-      <form id="project-form">
+<!-- Form for adding a new project -->
+<dialog id="newProjectDialog">
+    <form id="project-form">
         <label for="project-name">Project Name:</label>
         <input type="text" id="project-name" name="project-name" required />
         <button type="submit" id="add-project-btn">Add Project</button>
-      </form>
-    </dialog>
+        <button type="button" id="cancel-project-btn">Cancel</button>
+    </form>
+</dialog>
 
-    <!-- Select Project -->
-    <!-- <label for="project-select">Select Project:</label>
+<!-- Select Project -->
+<!-- <label for="project-select">Select Project:</label>
 <select id="project-select"></select> -->
 
-    <!-- Form for adding a new task -->
-    <dialog id="newTodoDialog">
-      <form id="todo-form">
-        <h2>Add Todo</h2>
+<!-- Form for adding a new task -->
+<dialog id="newTodoDialog">
+    <form id="todo-form">
+        <h2>Add Task</h2>
         <label for="todo-title">Title:</label>
         <input type="text" id="todo-title" name="todo-title" required />
 
         <label for="todo-description">Description:</label>
-        <input type="text" id="todo-description" name="todo-description" />
+       <input type="text" id="todo-description" name="todo-description" />
 
         <label for="todo-due-date">Due Date:</label>
         <input type="date" id="todo-due-date" name="todo-due-date" />
 
         <label for="todo-priority">Priority:</label>
         <select id="todo-priority" name="todo-priority">
-          <option value="low">Low</option>
-          <option value="medium">Medium</option>
-          <option value="high">High</option>
+            <option value="low">Low</option>
+            <option value="medium">Medium</option>
+            <option value="high">High</option>
         </select>
         <button type="submit">Add Todo</button>
         <button type="button" id="cancel-button">Cancel</button>
-      </form>
-    </dialog>
+    </form>
+</dialog>
 
-    <!-- Task List -->
-    <div id="todo-list"></div>
+<!-- Task List -->
+<div id="todo-list"></div>
 
-    <script src="./main.js" type="module" defer></script>
-  </body>
+<script src="./main.js" type="module" defer></script>
+</body>
 </html>
