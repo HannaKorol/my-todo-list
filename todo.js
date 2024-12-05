@@ -1,6 +1,6 @@
 export default class Todo {
     constructor (title, description, dueDate, priority) {
-        this.id = Date.now();
+        this.id = Date.now() + Math.random();
         // id based on Date.now(): https://dev.to/rahmanfadhil/how-to-generate-unique-id-in-javascript-1b13;
         //https://www.javatpoint.com/javascript-creates-unique-id;
         this.title = title;

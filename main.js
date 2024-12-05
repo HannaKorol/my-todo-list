@@ -1,35 +1,47 @@
-/* import { saveToStorage, loadFromStorage } from "./storage";
- 
-let myProjects = loadFromStorage();
-
-saveToStorage(myProjects); */
+import { saveToStorage, loadFromStorage } from "./storage.js";
+/* saveToStorage(myProjects); */
 
 import Project from "./project.js";
 import Todo from "./todo.js";
 
-const myProjects = [
-  new Project("# Home 🏡"),
-  new Project("# Work 💻"),
-  new Project("# Study 📚"),
-];
 
-//Button 'New Project'
-const newProjectBtn = document.createElement("button");
-newProjectBtn.textContent = " + New Project";
-newProjectBtn.classList.add("newProjectBtn");
+let myProjects = [];
 
-document.body.appendChild(newProjectBtn);
+document.addEventListener("DOMContentLoaded", () => {
+  //Default display of projects(2 projects: Home and Work)
+  myProjects = loadFromStorage();
 
-//Default display of projects(2 projects: Home and Work)
-displayProjects(myProjects);
+  if (myProjects.length === 0) {
+    myProjects = [
+      new Project("# Home 🏡"),
+      new Project("# Work 💻"),
+      new Project("# Study 📚"),
+    ];
+    saveToStorage(myProjects);
+  }
 
-//Refer to Project dialog
-const newProjectDialog = document.getElementById("newProjectDialog");
+  //Button 'New Project'
+  if (!document.querySelector(".newProjectBtn")) {
+    const newProjectBtn = document.createElement("button");
+    newProjectBtn.textContent = " + New Project";
+    newProjectBtn.classList.add("newProjectBtn");
 
-//Show 'Add Project' modal
-newProjectBtn.onclick = () => {
-  newProjectDialog.showModal();
-};
+    document.body.appendChild(newProjectBtn);
+
+    //Refer to Project dialog
+    const newProjectDialog = document.getElementById("newProjectDialog");
+
+    //Show 'Add Project' modal
+    newProjectBtn.onclick = () => {
+      newProjectDialog.showModal();
+    };
+  }
+
+    displayProjects(myProjects);
+
+});
+
+
 
 //---------------------------------------------------------------------------------Modal 'Project' window------------------------------------------------------------------------------//
 
@@ -68,6 +80,8 @@ function addProjectToGroup(project) {
 
   const createdProject = new Project(project.name);
   myProjects.push(createdProject);
+  saveToStorage(myProjects);
+  console.log("Loaded projects:", myProjects);
 }
 
 //----------------------------------------------------------------Display Projects------------------------------------------------------------------------//
@@ -84,8 +98,11 @@ function displayProjects(projects) {
     document.body.appendChild(projectList);
   }
 
+  //Clean container 'projectList'
   projectList.innerHTML = "";
 
+  
+  //Clean container 'projectList'
   //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
   while (projectList.firstChild) {
     projectList.removeChild(projectList.firstChild);
@@ -110,7 +127,10 @@ function displayProjects(projects) {
       /*console.log("Found project index:", projectIndex);*/
       if (projectIndex !== -1) {
         myProjects.splice(projectIndex, 1);
+        saveToStorage(myProjects);
         displayProjects(myProjects);
+      } else {
+        console.error("Project not found!");
       }
     };
 
